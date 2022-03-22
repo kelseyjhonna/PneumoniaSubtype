@@ -19,9 +19,9 @@ from lifelines import KaplanMeierFitter
 sns.set(style='ticks')
 plt.rcParams['font.family'] = 'Arial Unicode MS'
 plt.rcParams['axes.unicode_minus'] = False
-# 解决中文显示问题
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False
+# # 解决中文显示问题
+# plt.rcParams['font.sans-serif'] = ['SimHei']
+# plt.rcParams['axes.unicode_minus'] = False
 
 warnings.filterwarnings('ignore')
 
@@ -225,7 +225,7 @@ if predict:
     fig, ax = plt.subplots(figsize=(12, 6))
     kmf = KaplanMeierFitter()
 
-    name_lsit = ['亚型1', '亚型2']
+    name_lsit = ['Sub 1', 'Sub2']
     color_list = ['#fb9d50', '#6aadd5']
 
     for name, grouped_df in KM_df.groupby('Subphenotype'):
@@ -234,12 +234,12 @@ if predict:
 
     X = df_surv.loc[0]
     # st.write(X)
-    aaf.predict_survival_function(X).rename(columns={0: '患者预测'}).plot(ax=ax)
+    aaf.predict_survival_function(X).rename(columns={0: 'Patient'}).plot(ax=ax)
 
     ax.set_xlim([0, 40])
     ax.set_ylim([0.5, 1])
-    ax.set_xlabel('时间（天）', fontsize=20)
-    ax.set_ylabel('生存概率', fontsize=20)
+    ax.set_xlabel('Time(Days)', fontsize=20)
+    ax.set_ylabel('Survival Probability', fontsize=20)
     ax.tick_params(which='major', labelsize=18)
     ax.legend(fontsize=18)
     ax.grid(True)
