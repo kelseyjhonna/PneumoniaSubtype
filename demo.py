@@ -19,7 +19,8 @@ from lifelines import KaplanMeierFitter
 sns.set(style='ticks')
 plt.rcParams['font.family'] = 'Arial Unicode MS'
 plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rc('font', family='sans-serif', weight='bold')  # 用于画图时显示中文
+# matplotlib.rc('font', family='sans-serif', weight='bold')  # 用于画图时显示中文
+plt.rcParams['font.sans-serif']='SimHei'
 
 warnings.filterwarnings('ignore')
 
